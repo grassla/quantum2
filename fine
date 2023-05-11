@@ -1,0 +1,59 @@
+#### This program calculates the Clebsch-Gordan Coefficients for a selection of quantum numbers where:
+#### j1 is the total angular momentum for state 1,
+#### j2 is the total angular momentum for state 2,
+#### m1 is the magnetic quantum number for state 1,
+#### m2 is the magnetic quantum number for state 2,
+#### J is the combined total angular momentum of the states,
+#### and M is the combined magnetic quantum number for the states
+import math
+import sympy
+from sympy.physics.quantum.cg import CG
+from sympy import S
+from sympy import factorial
+from sympy import sqrt
+import numpy as np
+
+
+j1 = float(input('Enter a value for j1: '))
+print(j1)
+j2 = float(input('Enter a value for j2: '))
+m1 = float(input('Enter a value for m1: '))
+m2 = float(input('Enter a value for m2: '))
+
+
+if(2*j1 != math.floor(2*j1) or 2*j2 != math.floor(2*j2) or 2*m1 != math.floor(2*m1) or 2*m2 != math.floor(2*m2)):
+    error('Inputs must be integers or half-integers. Try again.')
+    return
+end
+
+def clebsch_gordan(j1, j2, m1, m2, J, M):
+    if((j1-j2 <= J <= j1+j2) and (m1+m2 == M) and (clebsch_gordan==REAL)):
+        Numerator = sqrt((2 * J + 1) * factorial(J + J) * factorial(j1 - m1) * factorial(j2 - m2) * factorial(J + M) * factorial(J - M))
+        Denominator = sqrt(factorial(j1 + j2 + J + 1) * factorial(j1 - j2 + J) * factorial(-j1 + j2 + J) * factorial(j1 +m1) * factorial(j2 + m2))
+    
+        #### Summation Calcs ####
+        n = 1000
+        a = 0
+        sum = 0
+        sum_a = 0
+        for i in n:
+            n1 = a
+            n2 = j1 - m1 - a
+            n3 = J - M - a
+            n4 = j2 - J + m1 + a
+            if((n1 < 0) or (n2 < 0) or (n3 < 0) or (n4 < 0)):
+                sum_a = 0
+            else:
+                sum_a <- (-1) ^ ((a + j1 - m1) * factorial(j1 + m1 + a) * factorial(j2 + J - m1 - a) / factorial(n1) * factorial(n2) * factorial(n3) * factorial(n4))
+                #### Add the current term to the sum in a increments ####
+                sum = sum + sum_a 
+        CGC = (Numerator / Denominator) * sum 
+    
+    else:
+        print('You have an out-of-bounds value. Try again.')
+        CGC = 0
+        return
+end
+print(CG)
+
+
